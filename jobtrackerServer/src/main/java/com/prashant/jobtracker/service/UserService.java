@@ -73,10 +73,16 @@ public class UserService implements UserDetailsService {
         return null;
     }
 
-
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         return userRepository.findByEmail(username).orElseThrow(()->
                 new ResourceNotFoundException("User not Registered"));
     }
+
+    public UserDTO getUserDetails() {
+        User user = getLoggedInUser();
+        return convertToDTO(user);
+    }
+
+
 }
