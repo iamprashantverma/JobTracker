@@ -1,0 +1,8 @@
+spring:
+  application:
+  name: jobtracker
+
+  #active applications profile
+  profiles:
+    active: dev
+
