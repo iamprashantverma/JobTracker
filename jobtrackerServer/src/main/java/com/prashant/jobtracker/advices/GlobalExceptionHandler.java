@@ -1,6 +1,7 @@
 package com.prashant.jobtracker.advices;
 
 import com.prashant.jobtracker.exception.ResourceAlreadyExistsException;
+import com.prashant.jobtracker.exception.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -25,6 +26,15 @@ public class GlobalExceptionHandler {
                 .status(HttpStatus.CONFLICT)
                 .build();
         return ResponseEntity.status(HttpStatus.CONFLICT).body(new APIResponse<>(err));
+    }
+
+    @ExceptionHandler(ResourceNotFoundException.class)
+    public ResponseEntity<APIResponse<?>> resourceNotFoundHandler(ResourceAlreadyExistsException ex) {
+        APIError err = APIError.builder()
+                .message(ex.getMessage())
+                .status(HttpStatus.NOT_FOUND)
+                .build();
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new APIResponse<>(err));
     }
 
 

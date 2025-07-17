@@ -2,7 +2,7 @@ package com.prashant.jobtracker.controller;
 
 import com.prashant.jobtracker.dto.JobApplicationDTO;
 import com.prashant.jobtracker.dto.Response;
-import com.prashant.jobtracker.entity.JobApplication;
+
 import com.prashant.jobtracker.service.JobService;
 import jakarta.validation.Valid;
 import org.springframework.format.annotation.DateTimeFormat;
