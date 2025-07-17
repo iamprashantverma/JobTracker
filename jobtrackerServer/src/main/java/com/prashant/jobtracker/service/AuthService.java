@@ -3,7 +3,9 @@ package com.prashant.jobtracker.service;
 import com.prashant.jobtracker.dto.LoginRequestDTO;
 import com.prashant.jobtracker.dto.Response;
 import com.prashant.jobtracker.dto.UserDTO;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -43,6 +45,23 @@ public class AuthService {
 
     public UserDTO signUp( UserDTO userData) {
         return userService.signUp(userData);
+    }
+
+    public void logout(HttpServletRequest request, HttpServletResponse response) {
+
+        HttpSession session = request.getSession(false);
+        if (session != null) {
+            session.invalidate();
+        }
+
+        SecurityContextHolder.clearContext();
+
+        // Remove JSESSIONID cookie
+        Cookie cookie = new Cookie("JSESSIONID", null);
+        cookie.setPath("/");
+        cookie.setHttpOnly(true);
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
     }
 
 }

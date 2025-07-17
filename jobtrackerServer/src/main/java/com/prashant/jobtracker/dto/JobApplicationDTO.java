@@ -20,7 +20,6 @@ public class JobApplicationDTO {
 
     private String comment;
 
-    @NotBlank(message = "please fill the job status")
     private JobStatus status;
 
     private String resumeUsed;

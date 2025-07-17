@@ -74,13 +74,19 @@ public class JobService {
 
 
     public List<JobApplicationDTO> getAllJobs(int page) {
-       Pageable pageDetails = PageRequest.of(page,PAGE_SIZE);
-       Page<JobApplication> pages = jobRepository.findAll(pageDetails);
-       return 
-               pages.stream()
-                       .map(this::convertToDTO)
-                       .toList();
+        User user = userService.getLoggedInUser();
+        Long userId = user.getId();
+
+        Pageable pageDetails = PageRequest.of(page, PAGE_SIZE);
+
+        Page<JobApplication> jobPage = jobRepository.findByUserId(userId, pageDetails);
+
+        return jobPage
+                .stream()
+                .map(this::convertToDTO)
+                .toList();
     }
+
 
 
     public List<JobApplicationDTO> getJobsBetweenDates(LocalDate from, LocalDate to) {

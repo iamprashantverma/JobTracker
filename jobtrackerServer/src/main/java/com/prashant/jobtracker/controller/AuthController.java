@@ -6,6 +6,7 @@ import com.prashant.jobtracker.dto.UserDTO;
 import com.prashant.jobtracker.service.AuthService;
 import com.prashant.jobtracker.service.UserService;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,12 @@ public class AuthController {
         UserDTO savedUser = authService.signUp(userData);
         log.info("User signed up successfully: {}", savedUser);
         return new ResponseEntity<>(savedUser, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<Response> logout(HttpServletRequest request, HttpServletResponse response) {
+        authService.logout(request,response);
+        return ResponseEntity.ok(new Response("Logout successful"));
     }
 
 
