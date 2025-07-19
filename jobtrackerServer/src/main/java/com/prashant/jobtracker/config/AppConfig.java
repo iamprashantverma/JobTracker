@@ -9,16 +9,10 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 public class AppConfig {
-
+    // creating the bean of model mapper
     @Bean
     public ModelMapper modelMapper() {
-        ModelMapper mapper = new ModelMapper();
-        mapper.getConfiguration()
-                .setSkipNullEnabled(true)
-                .setPreferNestedProperties(false)
-                .setFieldMatchingEnabled(true)
-                .setFieldAccessLevel(org.modelmapper.config.Configuration.AccessLevel.PRIVATE);
-        return mapper;
+        return new ModelMapper();
     }
 
 
