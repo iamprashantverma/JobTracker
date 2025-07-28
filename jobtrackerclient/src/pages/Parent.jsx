@@ -1,17 +1,20 @@
-import React, { useMemo, useState } from 'react'
+import React, { useCallback, useState } from 'react';
 import Child from './Child';
 
 const Parent = () => {
-    const [count, setCount] = useState(0);
-   const sayHello = useMemo(()=>{
-        setCount(count + 1);
-   },count);
+  const [count, setCount] = useState(0);
+
+  const help =useCallback(() => {
+    console.log("helped me");
+  },[]);
+
   return (
     <div>
-      <p>{count} - Parent</p>
-      <Child  sayHello = {sayHello}/>
+      <Child  help = {help}/>
+      <h1>{count}</h1>
+      <button onClick={() => setCount(prev => prev + 1)}>Increment</button>
     </div>
-  )
-}
+  );
+};
 
-export default Parent
+export default Parent;
