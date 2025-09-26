@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="aaab722f-0416-4ecd-916d-e9014c37fc4d" name="Changes" comment="" />
+    <list default="true" id="aaab722f-0416-4ecd-916d-e9014c37fc4d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../jobtrackerclient/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../jobtrackerclient/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jobtrackerclient/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../jobtrackerclient/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jobtrackerclient/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/../jobtrackerclient/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jobtrackerclient/src/App.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../jobtrackerclient/src/App.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jobtrackerclient/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/../jobtrackerclient/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jobtrackerclient/src/main.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/../jobtrackerclient/src/main.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jobtrackerclient/src/pages/AuthPage.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jobtrackerclient/src/pages/Child.jsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jobtrackerclient/src/pages/Parent.jsx" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,7 +91,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Projects/LMS/lms-server",
+    "last_opened_file_path": "D:/Projects/JobTracker/jobtrackerServer",
     "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors"
   }
 }]]></component>
