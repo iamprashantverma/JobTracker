@@ -1,12 +1,14 @@
 import './App.css'
-import Parent from './pages/Parent'
-
+import SignUp from './pages/SignUp'
+import Login from './pages/LogIn'
+import NavBar from './component/NavBar'
 function App() {
  
-
   return (
     <>
-  <Parent/>
+    <NavBar/>
+    <Login/>
+    <SignUp/>
     </>
   )
 }
