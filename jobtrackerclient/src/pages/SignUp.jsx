@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaEye, FaEyeSlash} from "react-icons/fa";
 import { signUp } from "../service/apiService";
+import { toast } from "react-toastify";
 
 const SignUp = ()=>{
 
@@ -26,6 +27,7 @@ const SignUp = ()=>{
         setErrorList([]);
         try {
             await signUp(formData);
+            toast.success('Signed up successfully');
         } catch(err){
             if (err && typeof err === 'object' && 'details' in err && err.details) {
                 const details = err.details;
