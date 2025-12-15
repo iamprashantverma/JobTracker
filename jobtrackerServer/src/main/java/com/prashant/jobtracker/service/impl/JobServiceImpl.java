@@ -4,10 +4,12 @@ import com.prashant.jobtracker.dto.JobApplicationDTO;
 import com.prashant.jobtracker.dto.Response;
 import com.prashant.jobtracker.entity.JobApplication;
 import com.prashant.jobtracker.entity.User;
+import com.prashant.jobtracker.entity.enums.JobStatus;
 import com.prashant.jobtracker.exception.ResourceNotFoundException;
 import com.prashant.jobtracker.exception.UnauthorizedAccessException;
 import com.prashant.jobtracker.repository.JobRepository;
 import com.prashant.jobtracker.service.JobService;
+import com.prashant.jobtracker.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
@@ -31,7 +33,7 @@ public class JobServiceImpl  implements JobService {
 
     private final JobRepository jobRepository;
     private final ModelMapper modelMapper;
-    private final UserServiceImpl userServiceImpl;
+    private final UserService userService;
 
 
     @Transactional
@@ -39,7 +41,7 @@ public class JobServiceImpl  implements JobService {
 
         JobApplication jobApplication = convertToEntity(jobApplicationDTO);
 
-        User user = userServiceImpl.getLoggedInUser();
+        User user = userService.getLoggedInUser();
         jobApplication.setUser(user);
 
         JobApplication savedJob = jobRepository.save(jobApplication);
@@ -63,7 +65,7 @@ public class JobServiceImpl  implements JobService {
     }
 
     public List<JobApplicationDTO> getAllJobs(int page) {
-        User user = userServiceImpl.getLoggedInUser();
+        User user = userService.getLoggedInUser();
         Long userId = user.getId();
 
         Pageable pageDetails = PageRequest.of(page, PAGE_SIZE);
@@ -90,7 +92,7 @@ public class JobServiceImpl  implements JobService {
         JobApplication existingJob = jobRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Job not found with id: " + id));
 
-        User currentUser = userServiceImpl.getLoggedInUser();
+        User currentUser = userService.getLoggedInUser();
         if (!existingJob.getUser().getId().equals(currentUser.getId())) {
             throw new UnauthorizedAccessException("You are not authorized to update this job.");
         }
@@ -105,12 +107,26 @@ public class JobServiceImpl  implements JobService {
     }
 
     @Override
-    public List<JobApplicationDTO> getJobCompany(String company) {
+    public List<JobApplicationDTO> getJobsByCompany(String company) {
         List<JobApplication> jobApplications = jobRepository.findAllByCompanyName(company);
         return jobApplications.stream()
                 .map(this::convertToDTO)
                 .toList();
     }
+
+    @Override
+    public List<JobApplicationDTO> getJobsByStatus(JobStatus status) {
+
+        User user = userService.getLoggedInUser();
+
+        return jobRepository
+                .findAllByStatusAndUserId(status, user.getId())
+                .stream()
+                .map(this::convertToDTO)
+                .toList();
+
+    }
+
 
 
     private JobApplication convertToEntity(JobApplicationDTO jobApplicationDTO) {

@@ -88,6 +88,12 @@
     "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.prashant.jobtracker.service.impl" />
+      <recent name="com.prashant.jobtracker.service" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="JobtrackerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <envs>

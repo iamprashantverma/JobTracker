@@ -2,6 +2,7 @@ package com.prashant.jobtracker.service;
 
 import com.prashant.jobtracker.dto.JobApplicationDTO;
 import com.prashant.jobtracker.dto.Response;
+import com.prashant.jobtracker.entity.enums.JobStatus;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -19,5 +20,9 @@ public interface JobService {
     List<JobApplicationDTO> getJobsBetweenDates(LocalDate from, LocalDate to);
 
     JobApplicationDTO updateJob(Long id, JobApplicationDTO jobApplicationDTO);
-    List<JobApplicationDTO> getJobCompany(String company);
+
+
+    List<JobApplicationDTO> getJobsByCompany(String companyName);
+
+    List<JobApplicationDTO> getJobsByStatus(JobStatus status);
 }
