@@ -17,4 +17,6 @@ public interface JobRepository extends JpaRepository<JobApplication,Long> {
     List<JobApplication> findByAppliedDateBetween(LocalDate from, LocalDate to);
 
     Page<JobApplication> findByUserId(Long userId, Pageable pageDetails);
+
+    List<JobApplication> findAllByCompanyName(String company);
 }
