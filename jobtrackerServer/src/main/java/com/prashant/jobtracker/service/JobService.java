@@ -3,13 +3,14 @@ package com.prashant.jobtracker.service;
 import com.prashant.jobtracker.dto.JobApplicationDTO;
 import com.prashant.jobtracker.dto.Response;
 import com.prashant.jobtracker.entity.enums.JobStatus;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
 import java.util.List;
 
 public interface JobService {
 
-    Response addJob(JobApplicationDTO jobApplicationDTO);
+    Response addJob(JobApplicationDTO jobApplicationDTO, MultipartFile file);
 
     JobApplicationDTO getJobById(Long id);
 

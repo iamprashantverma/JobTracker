@@ -8,8 +8,10 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -21,10 +23,9 @@ public class JobController {
 
     private final JobService jobService;
 
-    @PostMapping
-    public ResponseEntity<Response> addJobDetails(@Valid @RequestBody JobApplicationDTO jobApplicationDTO) {
-
-        Response resp = jobService.addJob(jobApplicationDTO);
+    @PostMapping(consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    public ResponseEntity<Response> addJobDetails(@Valid @RequestPart("job") JobApplicationDTO jobApplicationDTO, @RequestPart("resume") MultipartFile resumeFile) {
+        Response resp = jobService.addJob(jobApplicationDTO, resumeFile);
         return ResponseEntity.status(HttpStatus.CREATED).body(resp);
     }
 

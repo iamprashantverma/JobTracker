@@ -5,7 +5,6 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
 
 @Data
 @Builder
@@ -13,7 +12,4 @@ import java.util.List;
 @NoArgsConstructor
 public class Response {
     private String message;
-
-    public Response(boolean b, String allJobsRetrieved, List<JobApplicationDTO> jobs) {
-    }
 }

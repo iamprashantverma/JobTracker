@@ -19,6 +19,7 @@ public class JobApplication {
     @Column(nullable = false)
     private String companyName;
 
+    private String jobId;
 
     @Column(nullable = false)
     private String jobRole;

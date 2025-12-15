@@ -7,6 +7,9 @@
     <list default="true" id="aaab722f-0416-4ecd-916d-e9014c37fc4d" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jobtrackerclient/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../jobtrackerclient/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jobtrackerclient/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../jobtrackerclient/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../jobtrackerclient/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../jobtrackerclient/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
